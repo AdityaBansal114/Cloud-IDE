@@ -18,3 +18,8 @@ export const userSigninVerifyZodSchema = z.object({
     email: z.string().email(),
     otp: z.string()
 })
+
+export const adminSigninZodSchema = z.object({
+    email: z.string().email(),
+    password: z.string()
+})

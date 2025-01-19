@@ -4,7 +4,7 @@ import { getOTP, verifyOTP } from "../utils/totpgenerater";
 import sendMail from "../utils/mailer";
 import jwt from 'jsonwebtoken'
 import { JWT_SECRET } from "../utils/envVars";
-import { userSigninZodSchema , userSigninVerifyZodSchema } from "../zod/userAuth";
+import { userSigninZodSchema , userSigninVerifyZodSchema } from "../zod/auth";
 
 export const userSigninController = async(req : Request,res: Response)=>{
     try {
