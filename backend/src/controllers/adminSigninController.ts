@@ -28,11 +28,11 @@ export const adminSigninController = async (req: Request, res: Response) =>  {
             return
         }
 
-        const token = jwt.sign({Id: Admin.id},ADMIN_JWT_SECRET,{
+        const token = jwt.sign({id: Admin.id},ADMIN_JWT_SECRET,{
             expiresIn: '1h'
         });
 
-        res.cookie("Admin-token-cloudIDE", token, {
+        res.cookie("AdminTokenCloudIDE", token, {
             maxAge: 60*60*1000,
             httpOnly: true
         })

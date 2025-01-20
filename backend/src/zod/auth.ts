@@ -23,3 +23,9 @@ export const adminSigninZodSchema = z.object({
     email: z.string().email(),
     password: z.string()
 })
+
+export const addAdminZodSchema = z.object({
+    email: z.string().email(),
+    password : z.string(),
+    confirmPassword: z.string()
+})
