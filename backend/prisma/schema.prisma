@@ -45,7 +45,12 @@ enum SubState {
 }
 
 model Problem {
-  id            String      @id       @default(uuid())
-  visible       Boolean               @default(true)
-  adminId       String
+  id                  String      @id       @default(uuid())
+  visible             Boolean               @default(true)
+  name                String
+  level               String
+  problemStatement    String      @db.Text
+  testCases           String      @db.Text
+  expectedOutput      String      @db.Text
+  adminId             String
 }
