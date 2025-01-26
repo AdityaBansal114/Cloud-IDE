@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { submitProblemZodSchema } from "../zod/problemsSchema";
 import axios from "axios";
 import { db } from "../db";
+import { CALLBACK_URL, SUBMISSION_URL } from "../utils/envVars";
 
 const submitProblem = async(req: Request, res: Response) =>{
     try {
@@ -32,13 +33,13 @@ const submitProblem = async(req: Request, res: Response) =>{
             return;
         }
 
-        const response: any = await axios.post('https://judge0-ce.p.rapidapi.com/submissions', 
+        const response: any = await axios.post(SUBMISSION_URL, 
           {
             language_id: languageId,
             source_code: sourceCode,
             expected_output: problem.expectedOutput,
             stdin: problem.input, 
-            callback_url : 'https://fifty-camels-count.loca.lt/api/submission_callback'
+            callback_url : CALLBACK_URL
 
           },
           {
