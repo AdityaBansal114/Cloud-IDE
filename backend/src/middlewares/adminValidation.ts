@@ -11,7 +11,8 @@ const adminValidation = async(req:Request,res:Response,next:NextFunction) => {
             req.User = {
                 id: "007"
             }
-            next()
+            next();
+            return;
         };
 
         const token = req.cookies.AdminTokenCloudIDE;
@@ -50,3 +51,7 @@ const adminValidation = async(req:Request,res:Response,next:NextFunction) => {
 }
 
 export default adminValidation
+
+
+
+// 46a6f67f-5bf6-40f3-9a51-f8569d3f755c

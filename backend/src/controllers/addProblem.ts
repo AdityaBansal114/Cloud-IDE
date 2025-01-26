@@ -16,7 +16,7 @@ const addProblem  = async(req: Request, res: Response) => {
             return;
         }
 
-        const { visible , name , level , problemStatement , testCases , expectedOutput } = data.data;
+        const { visible , name , level , problemStatement , testCases , expectedOutput , input } = data.data;
 
         const problem = await db.problem.create({
             data:{
@@ -26,6 +26,7 @@ const addProblem  = async(req: Request, res: Response) => {
                 problemStatement,
                 testCases,
                 expectedOutput,
+                input,
                 adminId
             }
         });

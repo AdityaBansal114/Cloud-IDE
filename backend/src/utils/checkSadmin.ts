@@ -12,7 +12,6 @@ const checkSAdmin = (req: Request) =>{
         if(!decoded){
             return false;
         }
-
         return true;
 }
 
