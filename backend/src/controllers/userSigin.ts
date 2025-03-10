@@ -77,8 +77,10 @@ export const userSigninVerifyController = async(req : Request,res: Response)=>{
 
         res.cookie("jwtCloudIDE",token, {
             maxAge: 15*24*60*60*1000,
-            httpOnly: true
-        } )
+            httpOnly: true,
+            // sameSite: "none",
+            secure: false
+        })
 
         res.status(200).json({
             userId: user.id,

@@ -10,7 +10,7 @@ export const getProblems = async(req: Request,res: Response) : Promise<void> =>{
             id: problem.id,
             name: problem.name,
             level: problem.level,
-            visbile: problem.visible,
+            visible: problem.visible,
         }))
 
         const Selectedproblems:Problem[] = problems.filter((item)=> item.visible).map((problem)=>({

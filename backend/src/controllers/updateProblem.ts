@@ -6,6 +6,17 @@ const updateProblem = async(req: Request, res:Response)=>{
         const { problemId } =  req.params;
         const updatedData = req.body;
 
+        const existingProblem = await db.problem.findUnique({
+            where: { 
+                id: problemId 
+            }
+          });
+      
+          if (!existingProblem) {
+            res.status(400).json({ message: "Problem not found" });
+            return;
+          }
+
         const problem = await db.problem.update({
             where:{
                 id: problemId,

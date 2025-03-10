@@ -5,7 +5,9 @@ import { db } from "../db";
 
 export const getProblems = async(req: Request, res:Response) =>{
     try {
+
         const Cproblems = cachedProblems;
+
         if(Cproblems.length!==0){
             const Selectedprobelms = Cproblems.map((problem) => ({
                 id: problem.id,
@@ -34,6 +36,7 @@ export const getProblems = async(req: Request, res:Response) =>{
             level: problem.level,
         }))
 
+
         res.status(200).json(Selectedprobelms);
 
     } catch (error) {
@@ -52,7 +55,7 @@ export const getProblemById = async(req:Request, res: Response)=>{
             return
         }
 
-        const selectedProblem = await db.problem.findFirstOrThrow({
+        const selectedProblem = await db.problem.findUnique({
             where:{
                 id: problemId
             },
