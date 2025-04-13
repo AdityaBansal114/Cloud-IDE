@@ -83,7 +83,6 @@ export const userSignupVerifyController = async(req : Request,res: Response)=>{
             secure: false
         })
 
-        console.log("control");
         res.status(200).json({
             userId: user.id,
             token
